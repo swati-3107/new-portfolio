@@ -174,7 +174,7 @@ exports.updateProject = asyncHandler(async (req, res) => {
 // AUTHENTICATION
 exports.registerAdmin = async (req, res) => {
   try {
-    const { password } = req.body;
+    const { email, password } = req.body;
     //its called as salt which generate length of password
     const hashPass = await bcrypt.hash(password, 10);
     await Admin.create({ ...req.body, password: hashPass });
